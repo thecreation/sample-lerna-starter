@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "nav-icons";
+  src: url("nav-icons.eot?1f7d6b409291a41a703740e24ca1e058?#iefix") format("embedded-opentype"),
+url("nav-icons.woff2?1f7d6b409291a41a703740e24ca1e058") format("woff2"),
+url("nav-icons.woff?1f7d6b409291a41a703740e24ca1e058") format("woff"),
+url("nav-icons.ttf?1f7d6b409291a41a703740e24ca1e058") format("truetype"),
+url("nav-icons.svg?1f7d6b409291a41a703740e24ca1e058#nav-icons") format("svg");
+}
+
+.icon {
+  line-height: 1;
+}
+
+.icon:before {
+  font-family: nav-icons !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.icon-facebook:before {
+  content: "\f101";
+}
+.icon-twitter:before {
+  content: "\f102";
+}

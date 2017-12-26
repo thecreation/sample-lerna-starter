@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+
+const config = require('../../config');
+const path = require('path');
+const expand = require('glob-expand');
+const fs = require('fs-extra');
+const globParent = require('glob-parent');
+const colors = require('colors');
+const replaceExt = require('replace-ext');
+const sass = require('node-sass');
+const postcss = require('postcss');
+const autoprefixer = require('autoprefixer');
+const rename = require('rename');
+const importer = require('node-sass-import');
+
+const getModulesPath = () => {
+  return path.join(process.cwd(), '..');
+}
+
+const compile = (src, dest) => {
+  sass.render({
+    file: src,
+    includePaths: config.styles.include,
+    outputStyle: 'expanded',
+    importer: function(url, prev, done) {
+      if(url.match(/^@sample/)) {
+        url = url.replace(/^@sample/, getModulesPath());
+      }
+      return importer.call(this, url, prev, done);
+    },
+  }, function(error, result) {
+    if (error) {
+      console.log(colors.red.underline(src));
+      console.log(`Line ${error.line}: ${error.message}`);
+      process.exit(1);
+    }
+    else {
+      postcss([autoprefixer]).process(result.css.toString()).then(result => {
+        fs.ensureFileSync(dest)
+        fs.writeFileSync(dest, result.css);
+
+        if (result.map){
+          fs.writeFileSync(dest+'.map', result.map);
+        }
+
+        console.log(colors.green(`${dest} generated.`));
+      }).catch(error => {
+        console.error(error);
+        process.exit(1);
+      });
+    }
+  });
+}
+
+const base = globParent(config.styles.source);
+const files = expand({
+  cwd: process.cwd(),
+}, config.styles.source);
+
+files.forEach(file => {
+  let dest = path.join(config.styles.build, path.relative(base, file));
+      dest = rename(dest, {extname: '.css'});
+  let filename = path.basename(dest);
+  if(!filename.match(/^_/)) {
+    compile(file, dest);
+  }
+});
+

@@ -1,0 +1,27 @@
+{
+  "version": "0.0.1",
+  "name": "@sample/support",
+  "description": "Core for sample.",
+  "author": "Creation Studio Limited",
+  "license": "MIT",
+  "style": "index.scss",
+  "repository": "https://github.com/sample/sample/tree/master/modules/support",
+  "bugs": {
+    "url": "https://github.com/sample/sample/issues"
+  },
+  "scripts": {
+    "build": "../../scripts/module/npm-run-all css",
+    "prepare": "npm run build",
+    "css": "../../scripts/module/npm-run-all css:beautify css:compile css:minify",
+    "css:beautify": "../../scripts/module/beautify-css",
+    "css:compile": "../../scripts/module/compile-css",
+    "css:minify": "../../scripts/module/minify-css",
+    "lint": "../../scripts/module/npm-run-all lint:css:fix lint:md",
+    "lint:css": "../../scripts/module/lint-css",
+    "lint:css:fix": "../../scripts/module/lint-css --fix",
+    "lint:md": "../../scripts/module/lint-md"
+  },
+  "keywords": [
+    "sample"
+  ]
+}

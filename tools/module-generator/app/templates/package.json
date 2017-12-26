@@ -1,0 +1,35 @@
+{
+  "version": "0.0.1",
+  "name": "<%= module %>",
+  "description": "<%= description %>",
+  "author": "Creation Studio Limited",
+  "license": "MIT",
+  "style": "index.scss",
+  "main": "build/scripts/<%= lib %>.js",
+  "module":"src/scripts/<%= lib %>.js",
+  "repository": "https://github.com/sample/sample/tree/master/modules/<%= lib %>",
+  "bugs": {
+    "url": "https://github.com/sample/sample/issues"
+  },
+  "scripts": {
+    "build": "../../scripts/module/npm-run-all css js",
+    "prepare": "npm run build",
+    "css": "../../scripts/module/npm-run-all css:beautify css:compile css:minify",
+    "css:beautify": "../../scripts/module/beautify-css",
+    "css:compile": "../../scripts/module/compile-css",
+    "css:minify": "../../scripts/module/minify-css",
+    "js": "../../scripts/module/npm-run-all js:beautify js:compile js:minify",
+    "js:beautify": "../../scripts/module/beautify-js",
+    "js:compile": "../../scripts/module/compile-js",
+    "js:minify": "../../scripts/module/minify-js",
+    "lint": "../../scripts/module/npm-run-all lint:css:fix lint:js:fix lint:md",
+    "lint:css": "../../scripts/module/lint-css",
+    "lint:css:fix": "../../scripts/module/lint-css --fix",
+    "lint:js": "../../scripts/module/lint-js",
+    "lint:js:fix": "../../scripts/module/lint-js --fix",
+    "lint:md": "../../scripts/module/lint-md"
+  },
+  "keywords": [
+    "sample"
+  ]
+}

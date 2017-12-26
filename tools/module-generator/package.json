@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "@sample/module-generator",
+  "description": "Use this to create a new Sample modules!",
+  "author": "Creation Studio Limited",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "yeoman-generator": "^2.0.1"
+  },
+  "keywords": [
+    "sample",
+    "yeoman-generator"
+  ]
+}

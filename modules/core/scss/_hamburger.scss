@@ -1,0 +1,103 @@
+//
+// Nav Hamburger
+//
+// ========================================================================
+
+.#{$nav-namespace}-hamburger {
+  position: fixed;
+  top: 0;
+  z-index: $nav-hamburger-z-index;
+  box-sizing: content-box;
+  display: block;
+  width: $nav-hamburger-width;
+  padding: 0;
+  padding-top: $nav-hamburger-padding-top;
+  padding-right: $nav-hamburger-padding-right;
+  padding-bottom: $nav-hamburger-padding-bottom;
+  padding-left: $nav-hamburger-padding-left;
+  background-color: $nav-hamburger-bg;
+  border: 0;
+  outline: 0;
+  transition: all $nav-transition-duration $nav-transition-function;
+  transform: translate3d(0, 0, 0);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $nav-hamburger-hover-bg;
+  }
+
+  &-icon {
+    position: relative;
+    display: block;
+    margin-top: $nav-hamburger-icon-height + $nav-hamburger-icon-gutter;
+
+    &,
+    &::before,
+    &::after {
+      width: 100%;
+      height: 2px;
+      background-color: $nav-hamburger-color;
+      transition: all $nav-transition-duration $nav-transition-function;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: - ($nav-hamburger-icon-height + $nav-hamburger-icon-gutter);
+      left: 0;
+      content: " ";
+    }
+
+    &::after {
+      top: $nav-hamburger-icon-height + $nav-hamburger-icon-gutter;
+    }
+  }
+}
+
+.#{$nav-namespace}-hamburger-white {
+  background-color: $nav-hamburger-bg-white;
+
+  &:hover {
+    background-color: $nav-hamburger-hover-bg-white;
+  }
+
+  .#{$nav-namespace}-hamburger-icon {
+    &,
+    &::before,
+    &::after {
+      background-color: $nav-hamburger-color-white;
+    }
+  }
+}
+
+.#{$nav-namespace}-hamburger-dark {
+  background-color: $nav-hamburger-bg-dark;
+
+  &:hover {
+    background-color: $nav-hamburger-hover-bg-dark;
+  }
+
+  .#{$nav-namespace}-hamburger-icon {
+    &,
+    &::before,
+    &::after {
+      background-color: $nav-hamburger-color-dark;
+    }
+  }
+}
+
+.#{$nav-namespace}-open {
+  .#{$nav-namespace}-hamburger-icon {
+    background-color: transparent !important;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}

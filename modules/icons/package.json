@@ -1,0 +1,24 @@
+{
+  "version": "0.0.1",
+  "name": "@sample/icons",
+  "description": "Icons for sample.",
+  "author": "Creation Studio Limited",
+  "license": "MIT",
+  "style": "index.scss",
+  "main": "build/index.js",
+  "repository": "https://github.com/sample/sample/tree/master/modules/icons",
+  "bugs": {
+    "url": "https://github.com/sample/sample/issues"
+  },
+  "scripts": {
+    "generate": "./scripts/generate"
+  },
+  "keywords": [
+    "sample"
+  ],
+  "devDependencies": {
+    "glob-expand": "^0.2.1",
+    "icons": "^0.1.1",
+    "webfonts-generator": "^0.4.0"
+  }
+}
