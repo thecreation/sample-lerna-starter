@@ -5,8 +5,8 @@
   "author": "Creation Studio Limited",
   "license": "MIT",
   "style": "index.scss",
-  "main": "build/scripts/<%= lib %>.js",
-  "module":"src/scripts/<%= lib %>.js",
+  "main": "dist/<%= lib %>.js",
+  "module":"js/<%= lib %>.js",
   "repository": "https://github.com/sample/sample/tree/master/modules/<%= lib %>",
   "bugs": {
     "url": "https://github.com/sample/sample/issues"

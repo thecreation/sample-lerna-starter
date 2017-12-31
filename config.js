@@ -1,12 +1,22 @@
+const path = require('path');
+const pkg = require(path.resolve(process.cwd(), 'package.json'));
+const year = new Date().getFullYear();
+
 module.exports = {
+  banner: `/*!
+  * ${pkg.name} v${pkg.version} (${pkg.homepage})
+  * Copyright ${year} ${pkg.author}
+  * Licensed under ${pkg.license} (https://github.com/navjs/navjs/blob/master/LICENSE)
+  */`,
+
   styles: {
     source: 'scss/**/*.scss',
-    build: 'dist/css'
+    build: 'dist'
   },
 
   scripts: {
-    source: 'js/**/*.js',
-    build: 'dist/js'
+    source: 'js/*.js',
+    build: 'dist'
   },
 
   markdowns: {
@@ -14,7 +24,7 @@ module.exports = {
   },
 
   images: {
-    source: 'src/images/**/*.{jpg,png,gif,webp}',
+    source: 'images/**/*.{jpg,png,gif,webp}',
     build: 'dist/images'
-  },
+  }
 };

@@ -9,6 +9,7 @@ const colors = require('colors');
 const replaceExt = require('replace-ext');
 const sass = require('node-sass');
 const postcss = require('postcss');
+const header = require('postcss-header');
 const autoprefixer = require('autoprefixer');
 const rename = require('rename');
 const importer = require('node-sass-import');
@@ -35,7 +36,12 @@ const compile = (src, dest) => {
       process.exit(1);
     }
     else {
-      postcss([autoprefixer]).process(result.css.toString()).then(result => {
+      postcss([
+        autoprefixer,
+        header({
+          header: config.banner,
+        })
+      ]).process(result.css.toString()).then(result => {
         fs.ensureFileSync(dest)
         fs.writeFileSync(dest, result.css);
 

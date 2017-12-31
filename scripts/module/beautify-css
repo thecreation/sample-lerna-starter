@@ -15,6 +15,7 @@ const beautify = (file) => {
 
     let data = prettier.format(content.toString(), {
       tabWidth: 2,
+      printWidth: 200,
       useTabs: false,
       semi: true,
       singleQuote: false,

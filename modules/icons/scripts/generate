@@ -14,7 +14,7 @@ webfontsGenerator({
   dest: 'dist',
   fontName: 'nav-icons',
   css: true,
-  cssTemplate: path.join('src/templates/css.hbs'),
+  cssTemplate: path.join('src/templates/_css.hbs'),
   templateOptions: {
     classPrefix: 'icon-',
     baseSelector: '.icon'

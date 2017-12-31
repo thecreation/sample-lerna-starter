@@ -25,18 +25,20 @@ const compile = (src, dest) => {
       }),
       resolve(),
       commonjs({
-          include: ['node_modules/**']
+        include: ['node_modules/**']
       })
     ]
   }).then(bundle => {
     bundle.write({
       file: dest,
-      format: 'cjs'
+      name: 'sample',
+      format: 'umd',
+      banner: config.banner
     })
   }).then(()=>{
     console.log(colors.green(`${dest} generated.`));
   }).catch(error => {
-    console.error(err);
+    console.error(error);
     process.exit(1);
   });
 };
