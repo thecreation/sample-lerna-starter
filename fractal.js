@@ -25,7 +25,6 @@ fractal.set('project.title', 'Sample');
  * Tell Fractal where to look for components.
  */
 fractal.components.set('path', path.join(__dirname, 'modules'));
-
 fractal.components.set('default.preview', '@support-layout');
 
 fractal.components.set('title', 'Patterns');

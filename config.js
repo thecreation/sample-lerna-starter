@@ -6,7 +6,7 @@ module.exports = {
   banner: `/*!
   * ${pkg.name} v${pkg.version} (${pkg.homepage})
   * Copyright ${year} ${pkg.author}
-  * Licensed under ${pkg.license} (https://github.com/navjs/navjs/blob/master/LICENSE)
+  * Licensed under ${pkg.license} (https://github.com/sample/sample/blob/master/LICENSE)
   */`,
 
   styles: {

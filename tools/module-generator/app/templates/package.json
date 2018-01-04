@@ -27,9 +27,15 @@
     "lint:css:fix": "../../scripts/module/lint-css --fix",
     "lint:js": "../../scripts/module/lint-js",
     "lint:js:fix": "../../scripts/module/lint-js --fix",
-    "lint:md": "../../scripts/module/lint-md"
+    "lint:md": "../../scripts/module/lint-md",
+    "watch": "../../scripts/module/npm-run-all --parallel watch:*",
+    "watch:js": "../../scripts/module/watch-js",
+    "watch:css": "../../scripts/module/watch-css"
   },
   "keywords": [
     "sample"
-  ]
+  ],
+  "dependencies": {
+    "@sample/support": "*"
+  }
 }

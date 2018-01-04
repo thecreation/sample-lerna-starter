@@ -13,7 +13,8 @@
   },
   "scripts": {
     "build": "../../scripts/module/npm-run-all css js",
-    "prepare": "npm run build",
+    "postinstall": "npm run build",
+    "prepublish": "npm run build",
     "css": "../../scripts/module/npm-run-all css:beautify css:compile css:minify",
     "css:beautify": "../../scripts/module/beautify-css",
     "css:compile": "../../scripts/module/compile-css",
