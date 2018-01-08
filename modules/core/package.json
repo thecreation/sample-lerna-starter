@@ -6,7 +6,7 @@
   "license": "MIT",
   "style": "index.scss",
   "main": "dist/core.js",
-  "module":"index.js",
+  "module": "index.js",
   "repository": "https://github.com/sample/sample/tree/master/modules/core",
   "bugs": {
     "url": "https://github.com/sample/sample/issues"
@@ -34,8 +34,10 @@
     "watch:css": "../../scripts/module/watch-css"
   },
   "dependencies": {
+    "@sample/icons": "*",
+    "@sample/module-generator": "^1.0.0",
     "@sample/support": "*",
-    "@sample/icons": "*"
+    "jquery": "^3.2.1"
   },
   "keywords": [
     "sample"

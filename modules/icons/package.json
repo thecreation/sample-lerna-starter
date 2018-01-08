@@ -20,5 +20,8 @@
     "glob-expand": "^0.2.1",
     "icons": "^0.1.1",
     "webfonts-generator": "^0.4.0"
+  },
+  "dependencies": {
+    "@sample/module-generator": "^1.0.0"
   }
 }

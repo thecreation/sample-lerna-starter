@@ -15,6 +15,7 @@ const rename = require('rename');
 const compile = (src, dest) => {
   rollup.rollup({
     input: src,
+    external: ['jquery'],
     plugins: [
       babel({
         babelrc: false,
@@ -33,6 +34,9 @@ const compile = (src, dest) => {
       file: dest,
       name: 'sample',
       format: 'umd',
+      globals: {
+        jquery: '$'
+      },
       banner: config.banner
     })
   }).then(()=>{
