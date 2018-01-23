@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const expand = require('glob-expand');
 const colors = require('colors');
-const webfontsGenerator = require('webfonts-generator');
 const webfont = require('webfont').default;
 
 const files = expand({
