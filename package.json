@@ -64,6 +64,7 @@
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0",
     "uglify-es": "^3.3.5",
+    "webfont": "^7.1.4",
     "webfonts-generator": "^0.4.0",
     "yargs-parser": "^8.1.0",
     "yeoman-generator": "^2.0.2",

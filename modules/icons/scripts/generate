@@ -1,30 +1,32 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const path = require('path');
 const expand = require('glob-expand');
 const colors = require('colors');
 const webfontsGenerator = require('webfonts-generator');
+const webfont = require('webfont').default;
 
 const files = expand({
   cwd: process.cwd(),
 }, 'src/svgs/**/*.svg');
 
-webfontsGenerator({
-  files: files,
-  dest: 'dist',
+webfont({
+  files: 'src/svgs/**/*.svg',
   fontName: 'nav-icons',
-  css: true,
-  cssTemplate: path.join('src/templates/_css.hbs'),
-  templateOptions: {
-    classPrefix: 'icon-',
-    baseSelector: '.icon'
+  classPrefix: 'icon-',
+  baseSelector: '.icon',
+  formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
+  glyphTransformFn: obj => {
+    obj.name;
   },
-  types: ['eot', 'woff2', 'woff', 'ttf', 'svg'],
-  order: ['eot', 'woff2', 'woff', 'ttf', 'svg']
-}, function(error) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log(colors.green(`Icon generated.`));
-  }
+  template: path.join('src/templates/_css.hbs')
+}).then((result) => {
+  fs.writeFileSync(`dist/${result.config.fontName}.css`, result.styles);
+  fs.writeFileSync(`dist/${result.config.fontName}.svg`, result.svg);
+  fs.writeFileSync(`dist/${result.config.fontName}.ttf`, new Buffer(result.ttf));
+  fs.writeFileSync(`dist/${result.config.fontName}.eot`, new Buffer(result.eot));
+  fs.writeFileSync(`dist/${result.config.fontName}.woff`, new Buffer(result.woff));
+  fs.writeFileSync(`dist/${result.config.fontName}.woff2`, new Buffer(result.woff2));
+  console.log(colors.green('Icon generated.'));
 });

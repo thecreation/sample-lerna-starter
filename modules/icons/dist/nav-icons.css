@@ -1,10 +1,11 @@
 @font-face {
   font-family: "nav-icons";
-  src: url("nav-icons.eot?1f7d6b409291a41a703740e24ca1e058?#iefix") format("embedded-opentype"),
-url("nav-icons.woff2?1f7d6b409291a41a703740e24ca1e058") format("woff2"),
-url("nav-icons.woff?1f7d6b409291a41a703740e24ca1e058") format("woff"),
-url("nav-icons.ttf?1f7d6b409291a41a703740e24ca1e058") format("truetype"),
-url("nav-icons.svg?1f7d6b409291a41a703740e24ca1e058#nav-icons") format("svg");
+  src:
+    url("./nav-icons.eot?#iefix") format("embedded-opentype"),
+    url("./nav-icons.woff2") format("woff2"),
+    url("./nav-icons.woff") format("woff"),
+    url("./nav-icons.ttf") format("truetype"),
+    url("./nav-icons.svg#nav-icons") format("svg");
 }
 
 .icon {
@@ -20,9 +21,12 @@ url("nav-icons.svg?1f7d6b409291a41a703740e24ca1e058#nav-icons") format("svg");
   text-transform: none;
 }
 
-.icon-facebook:before {
-  content: "\f101";
+
+
+.icon-facebook::before {
+    content: "\ea01";
 }
-.icon-twitter:before {
-  content: "\f102";
+
+.icon-twitter::before {
+    content: "\ea02";
 }
