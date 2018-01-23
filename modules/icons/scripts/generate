@@ -1,14 +1,9 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
-const expand = require('glob-expand');
 const colors = require('colors');
 const webfont = require('webfont').default;
-
-const files = expand({
-  cwd: process.cwd(),
-}, 'src/svgs/**/*.svg');
 
 webfont({
   files: 'src/svgs/**/*.svg',
@@ -21,11 +16,13 @@ webfont({
   },
   template: path.join('src/templates/_css.hbs')
 }).then((result) => {
-  fs.writeFileSync(`dist/${result.config.fontName}.css`, result.styles);
-  fs.writeFileSync(`dist/${result.config.fontName}.svg`, result.svg);
-  fs.writeFileSync(`dist/${result.config.fontName}.ttf`, new Buffer(result.ttf));
-  fs.writeFileSync(`dist/${result.config.fontName}.eot`, new Buffer(result.eot));
-  fs.writeFileSync(`dist/${result.config.fontName}.woff`, new Buffer(result.woff));
-  fs.writeFileSync(`dist/${result.config.fontName}.woff2`, new Buffer(result.woff2));
-  console.log(colors.green('Icon generated.'));
+  fs.ensureDir('dist',err => {
+    fs.writeFileSync(`dist/${result.config.fontName}.css`, result.styles);
+    fs.writeFileSync(`dist/${result.config.fontName}.svg`, result.svg);
+    fs.writeFileSync(`dist/${result.config.fontName}.ttf`, new Buffer(result.ttf));
+    fs.writeFileSync(`dist/${result.config.fontName}.eot`, new Buffer(result.eot));
+    fs.writeFileSync(`dist/${result.config.fontName}.woff`, new Buffer(result.woff));
+    fs.writeFileSync(`dist/${result.config.fontName}.woff2`, new Buffer(result.woff2));
+    console.log(colors.green('Icon generated.'));
+  })
 });
