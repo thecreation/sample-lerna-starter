@@ -10,9 +10,6 @@
 
 .icon {
   line-height: 1;
-}
-
-.icon:before {
   font-family: nav-icons !important;
   font-style: normal;
   font-variant: normal;
